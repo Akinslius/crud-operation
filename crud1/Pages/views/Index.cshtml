@@ -4,3 +4,40 @@
 }
 <br />
 <h1> List of all Student</h1>
+
+<br />
+<div>
+     <a class="btn btn-warning btn-sm" href="/views/create">New Student Info</a>
+</div>
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Class</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AllStudent)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.dob</td>
+                <td>@item.gender</td>
+                <td>@item.studentClass</td>               
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/views/Edit?id=@item.id">Edit </a>
+                    <a class="btn btn-danger btn-sm" href="/views/Delete?id=@item.id">Delete </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
