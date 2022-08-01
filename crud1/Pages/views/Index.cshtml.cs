@@ -50,11 +50,11 @@ namespace crud1.Pages.views
 
     public class StudentInfo
     {
-        public string id;
-        public string name;
-        public string dob;
-        public string gender;
-        public string studentClass;
+        public string id =  "";
+        public string name = "";
+        public string dob = "";
+        public string gender = "";
+        public string studentClass = "";
 
     }
 

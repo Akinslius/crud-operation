@@ -29,10 +29,6 @@ namespace crud1.Pages.views
 
             try
             {
-
-            }
-            catch (Exception ex)
-            {
                 string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=student;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -59,10 +55,19 @@ namespace crud1.Pages.views
                 }
 
 
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error:" + ex.ToString());
             }
 
             studentInfo.name = ""; studentInfo.dob = ""; studentInfo.gender = ""; studentInfo.studentClass = "";
             successMessage = "student Added Successfully";
+
+            //Response.Write("<script>alert('Inserted..');window.location = 'newpage.aspx';</script>"); //works great
+
+           // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
 
             Response.Redirect("/views/Index");
 

@@ -1,7 +1,8 @@
 ﻿@page
-@model crud1.Pages.views.createModel
+@model crud1.Pages.views.editModel
 @{
 }
+
 <br />
 
 @*@if (Model.errorMessage.Length > 0)
@@ -16,27 +17,28 @@
             </div>
     </div>
 }*@
-<h2> Insert New Student</h2>
+<h2> Edit Student Information</h2>
 <form method="POST">
+    <input type="hidden" name="id" value="@Model.studentInfo.id"/>
     <div class="row mb-3">
         <label class="col-md-3 form-label">Name </label>
         <div class="col-md-6">
-            <input type="text" name="name" placeholder="Enter Your Fullname" class="form-control" required/>
+            <input type="text" name="name" value="@Model.studentInfo.name" class="form-control" required/>
         </div>
     </div>
 
     <div class="row mb-3">
         <label class="col-md-3 form-label">Date of Birth </label>
         <div class="col-md-6">
-            <input type="date" name="dob" placeholder="Select Your Date of Birth" class="form-control" required/>
+            <input type="date" name="dob" value="@Model.studentInfo.dob" class="form-control" required/>
         </div>
     </div>
 
     <div class="row mb-3">
          <label class="col-md-3 form-label">Gender </label>
          <div class="col-md-6">
-             <select name="gender" class="form-select" required>
-             <option value="" disabled selected>Select Your Gender</option>
+             <select name="gender"  class="form-select" required>
+             <option value="@Model.studentInfo.gender" disabled> @Model.studentInfo.gender </option>
              <option value="Male" >Male</option>
              <option value="Female" >Female</option>
              <option value="I prefer not to say" >I prefer not to say</option>
@@ -48,7 +50,7 @@
          <label class="col-md-3 col-form-label">Class </label>
          <div class="col-md-6" >
               <select name="studentClass" class="form-control" required>
-             <option value="" disabled selected>Select Your Class</option>
+             <option value="@Model.studentInfo.studentClass" disabled>@Model.studentInfo.studentClass </option>
              <option value="High School" >High School</option>
              <option value="Undergraduate" >Undergraduate</option>
              <option value="Graduate" >Graduate</option>
@@ -73,10 +75,11 @@
 
          <div class="row mb-3">       
         <div class="offset-sm-3 col-sm-3 d-grid">
-            <button type="submit" class="btn btn-primary">Submit </button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </div>
          <div class="col-sm-3 d-grid">
            <a class="btn btn-danger" href="Index" role="button">Cancel</a>
         </div>
     </div>
 </form>
+

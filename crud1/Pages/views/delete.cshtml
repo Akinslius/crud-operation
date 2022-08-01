@@ -1,0 +1,35 @@
+﻿@page
+@using System.Data.SqlClient;
+
+
+@{
+    try
+    {
+        string id = Request.Query["id"];
+
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=student;Integrated Security=True";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string sql = "DELETE FROM form WHERE id=" + id;
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {                  
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error:" + ex.ToString());
+
+            }
+
+            Response.Redirect("/views/Index");
+        }
+    }
+}
+}
